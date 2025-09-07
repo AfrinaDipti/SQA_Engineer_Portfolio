@@ -1,0 +1,166 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-06T17:41:16.699Z",
+    "end": "2025-09-06T17:41:23.525Z",
+    "duration": 6826,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e34b800f-45f0-4e65-937d-14a5d0ccd283",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "168347a5-d24e-4982-ba47-a1fda7829042",
+          "title": "SauceDemo Login Functionality",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow a standard user to log in successfully",
+              "fullTitle": "SauceDemo Login Functionality should allow a standard user to log in successfully",
+              "timedOut": null,
+              "duration": 3526,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Executing successful login test...');\n// Use the Page Object method for login, making the test very readable.\n_LoginPage.default.login('standard_user', 'secret_sauce');\n// Assert that we are redirected to the products page and the title is correct.\n_ProductsPage.default.verifyOnProductsPage();\ncy.log('Assertion Passed: Successfully logged in and navigated to inventory page.');",
+              "err": {},
+              "uuid": "f3ffb16c-b8d3-4e0d-aaaa-913a45bf5012",
+              "parentUUID": "168347a5-d24e-4982-ba47-a1fda7829042",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display an error for invalid credentials",
+              "fullTitle": "SauceDemo Login Functionality should display an error for invalid credentials",
+              "timedOut": null,
+              "duration": 1217,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Executing invalid login test...');\n_LoginPage.default.login('wrong_user', 'wrong_password'); // Invalid credentials\n// Assert that the correct error message is displayed for invalid credentials.\n_LoginPage.default.getLoginErrorMessage().should('be.visible').and('have.text', 'Epic sadface: Username and password do not match any user in this service');\ncy.log('Assertion Passed: Correct error message displayed for invalid credentials.');",
+              "err": {},
+              "uuid": "998d4fb3-2b75-40a8-a5b1-60f99e19bb8e",
+              "parentUUID": "168347a5-d24e-4982-ba47-a1fda7829042",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display an error for locked out user",
+              "fullTitle": "SauceDemo Login Functionality should display an error for locked out user",
+              "timedOut": null,
+              "duration": 926,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Executing locked out user test...');\n_LoginPage.default.login('locked_out_user', 'secret_sauce');\n// Assert that the correct error message is displayed for a locked out user.\n_LoginPage.default.getLoginErrorMessage().should('be.visible').and('have.text', 'Epic sadface: Sorry, this user has been locked out.');\ncy.log('Assertion Passed: Correct error message displayed for locked out user.');",
+              "err": {},
+              "uuid": "6d80824b-322c-4212-8b49-95076e04337b",
+              "parentUUID": "168347a5-d24e-4982-ba47-a1fda7829042",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display visual glitches for problem user",
+              "fullTitle": "SauceDemo Login Functionality should display visual glitches for problem user",
+              "timedOut": null,
+              "duration": 945,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('Executing problem user test...');\n_LoginPage.default.login('problem_user', 'secret_sauce');\n_ProductsPage.default.verifyOnProductsPage(); // Verify navigation first\n// Now, assert specific visual glitches. For SauceDemo, the product images are broken.\ncy.get('.inventory_item_img img').each($img => {\n  // Check if the image source is the broken one\n  cy.wrap($img).should('have.attr', 'src', '/static/media/sl-404.168b1cce.jpg');\n});\ncy.log('Assertion Passed: Problem user visual glitches verified.');",
+              "err": {},
+              "uuid": "ea272a70-622b-4075-a7ff-800e28abf6cf",
+              "parentUUID": "168347a5-d24e-4982-ba47-a1fda7829042",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f3ffb16c-b8d3-4e0d-aaaa-913a45bf5012",
+            "998d4fb3-2b75-40a8-a5b1-60f99e19bb8e",
+            "6d80824b-322c-4212-8b49-95076e04337b",
+            "ea272a70-622b-4075-a7ff-800e28abf6cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6614,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "SauceDemo Automation Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
